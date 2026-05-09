@@ -3,97 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>郑俊鑫 - 个人简历</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>郑俊鑫的个人简历</title>
     <style>
-        :root { --primary-color: #2c3e50; --accent-color: #3498db; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 40px 20px; background: #f4f7f6; }
-        .resume-card { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        header { border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
-        h1 { margin: 0; color: var(--primary-color); font-size: 2.5em; }
-        .contact-info { text-align: right; font-size: 0.9em; }
-        section { margin-bottom: 30px; }
-        h2 { border-left: 5px solid var(--accent-color); padding-left: 15px; color: var(--primary-color); text-transform: uppercase; font-size: 1.2em; margin-bottom: 15px; }
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { background: #ecf0f1; padding: 5px 12px; border-radius: 4px; font-size: 0.85em; font-weight: bold; }
-        .project-item, .edu-item { margin-bottom: 20px; }
-        .item-header { display: flex; justify-content: space-between; font-weight: bold; color: #2c3e50; }
-        .date { color: #7f8c8d; font-size: 0.9em; }
-        .highlight { color: var(--accent-color); font-weight: bold; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 5px; }
+        body {
+            font-family: 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f5f7f9;
+        }
+        .resume-container {
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+        header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .info-main h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 2px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .skill-item, .edu-item, .project-item {
+            margin-bottom: 15px;
+        }
+        .edu-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .project-title {
+            color: #2980b9;
+        }
+        .achievement-list, .detail-list {
+            padding-left: 20px;
+            margin: 5px 0;
+        }
+        .detail-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .tag {
+            background: #eef2f7;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #555;
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
-    <div class="resume-card">
+    <div class="resume-container">
+        <!-- 个人信息 -->
         <header>
-            <div>
+            <div class="info-main">
                 <h1>郑俊鑫</h1>
-                <p>汕头大学 · 电子与计算机工程 · 本科</p>
-            </div>
-            <div class="contact-info">
-                <div><i class="fas fa-phone"></i> 15815155753</div>
-                <div><i class="fas fa-envelope"></i> 2323857919@qq.com</div>
-                <div><i class="fas fa-birthday-cake"></i> 2003.09.12</div>
+                <div class="info-grid">
+                    <div><strong>生日：</strong>2003/09/12</div>
+                    <div><strong>学历：</strong>本科</div>
+                    <div><strong>籍贯：</strong>广东汕头</div>
+                    <div><strong>联系电话：</strong>15815155753</div>
+                    <div><strong>邮箱：</strong>2323857919@qq.com</div>
+                    <div><strong>英语水平：</strong>CET-6</div>
+                </div>
             </div>
         </header>
 
-        <section id="skills">
+        <!-- 专业技能 -->
+        <section>
             <h2>专业技能</h2>
-            <div class="skill-tags">
-                <span class="tag">STM32 / HAL库</span>
-                <span class="tag">PCB设计 (AD/立创EDA)</span>
-                <span class="tag">C/C++</span>
-                <span class="tag">Python</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">AI Agent 开发</span>
-                <span class="tag">MySQL / Redis</span>
+            <div class="skill-item">
+                <strong>1. 硬件与仿真：</strong>熟悉电子元器件/测量仪器；掌握 AD、Multisim、Keil、Proteus，可完成电路设计、仿真与调试。
+            </div>
+            <div class="skill-item">
+                <strong>2. 嵌入式开发：</strong>精通 STM32 开发、HAL 库编程、PWM 输出/输入捕获、硬件调试与代码烧录。
+            </div>
+            <div class="skill-item">
+                <strong>3. 编程开发：</strong>熟练 C/C++、Python，掌握数据结构与算法、数据处理及机器学习库。
+            </div>
+            <div class="skill-item">
+                <strong>4. 工程实现：</strong>独立完成 PCB 设计、DRC 审查、硬件联调，具备模数混合电路开发能力。
+            </div>
+            <div class="skill-item">
+                <strong>5. 其他：</strong>了解 MySQL、Redis；熟练使用 AI 编程工具，具备全栈开发基础。
             </div>
         </section>
 
-        <section id="education">
+        <!-- 教育背景 -->
+        <section>
             <h2>教育背景</h2>
             <div class="edu-item">
-                <div class="item-header">
-                    <span>汕头大学 (本科)</span>
-                    <span class="date">2022.10 - 2026.06</span>
+                <div class="edu-header">
+                    <span>2022.10 ~ 2026.06</span>
+                    <span>汕头大学</span>
+                    <span>电子与计算机工程</span>
+                    <span>本科</span>
                 </div>
-                <div>专业：电子与计算机工程 <span class="highlight">GPA: 3.63/5.0 (前13.33%)</span></div>
+                <p style="font-size: 14px; margin: 5px 0;">
+                    <strong>主修课程：</strong>C语言、微机与单片机原理、微积分、离散数学、线性代数、概率论、基本电路理论、信号与系统、模拟与数字电路、数据结构与算法、Python与数据科学等。
+                </p>
+                <p style="font-size: 14px;">
+                    <strong>在校成绩：</strong>GPA 为 <span class="highlight">3.63</span> (5.0满分)，专业排名前 <span class="highlight">13.33%</span>。
+                </p>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>项目经历</h2>
-            <div class="project-item">
-                <div class="item-header">
-                    <span>基于频差法的超声波车速测量系统</span>
-                    <span class="date">2025.10 - 2026.04</span>
-                </div>
-                <ul>
-                    <li>基于 STM32F103C8T6 核心，实现低成本高精度车速监测。</li>
-                    <li>完成硬件驱动开发、信号调理及 DS18B20 温度补偿模块。</li>
-                    <li>基于 HAL 库实现 40kHz PWM 发射与定时器输入捕获。</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <div class="item-header">
-                    <span>基于 Agent 的智能招聘匹配网站</span>
-                    <span class="date">2025.12 - 2026.03</span>
-                </div>
-                <ul>
-                    <li>接入 Agent 架构，解决传统平台匹配低效问题。</li>
-                    <li>负责前后端代码开发与环境配置，输出完整开发计划书。</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="honors">
+        <!-- 荣誉成就 -->
+        <section>
             <h2>荣誉成就</h2>
-            <ul>
-                <li>2026 北回归线黑客松 Agent 赛道最佳场景理解奖</li>
-                <li>连续三年获得国家励志奖学金</li>
-                <li>蓝桥杯软件类省级三等奖 / 数学竞赛省级三等奖</li>
+            <ul class="achievement-list">
+                <li>2022-2026 连续四年获得校级全额奖学金</li>
+                <li>2022-2024 年连续两年获得校级二等奖学金</li>
+                <li>2025 年获得校级三等奖学金</li>
+                <li>2022-2025 连续三年获得国家励志奖学金</li>
+                <li>2025 年获得数学竞赛省级三等奖，蓝桥杯软件类省级三等奖</li>
+                <li>2026 年获得北回归线黑客松 <span class="highlight">Agent 赛道最佳场景理解奖</span></li>
             </ul>
+        </section>
+
+        <!-- 项目经历 -->
+        <section>
+            <h2>项目经历</h2>
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <span class="project-title">项目一：基于频差法的超声波车速测量系统</span>
+                    <span>2025.10 - 2026.04</span>
+                </div>
+                <ul class="detail-list">
+                    <li><strong>项目概述：</strong>以 STM32F103C8T6 为核心，基于超声波多普勒频差法设计高精度速测系统。</li>
+                    <li><strong>硬件开发：</strong>开发超声波发射驱动、信号调理、二级整形及 DS18B20 温度补偿模块，通过 Multisim 仿真验证。</li>
+                    <li><strong>嵌入式开发：</strong>基于 HAL 库实现 40kHz PWM 发射、定时器输入捕获测频、非阻塞温度采集、车速解算与 OLED 显示，规避 FFT 算力开销。</li>
+                    <li><strong>工程实现：</strong>使用立创 EDA 完成四层 PCB 设计与 DRC 审查，解决仿真缺陷及传感器上电异常。</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <span class="project-title">项目二：基于 STM32 的循迹避障小车</span>
+                    <span>2024.05 - 2024.08</span>
+                </div>
+                <ul class="detail-list">
+                    <li><strong>项目描述：</strong>基于 STM32 芯片搭建电机驱动、红外循迹、超声避障模块，实现小车自动循迹与障碍物规避。</li>
+                    <li><strong>职责：</strong>负责程序烧录、硬件调试、功能联调，确保循迹与避障功能稳定运行。</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <span class="project-title">项目三：基于深度学习的寄生虫智能诊断系统</span>
+                    <span>2023.06 - 2024.07</span>
+                </div>
+                <ul class="detail-list">
+                    <li><strong>项目描述：</strong>面向医疗落后地区搭建云端 AI 诊断系统，辅助医生快速筛查寄生虫疾病。</li>
+                    <li><strong>职责：</strong>完成样本分类与标签标注，搭建深度学习模型并训练调参，验证模型可行性。</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <span class="project-title">项目四：基于 Agent 的智能招聘匹配网站</span>
+                    <span>2025.12 - 2026.03</span>
+                </div>
+                <ul class="detail-list">
+                    <li><strong>项目描述：</strong>接入 Agent 构建求职者与岗位智能匹配模型，解决传统招聘平台匹配低效问题。</li>
+                    <li><strong>职责：</strong>完成项目环境配置、开发计划书撰写，负责前后端代码开发与调试。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 自我评价 -->
+        <section>
+            <h2>自我评价</h2>
+            <p style="font-size: 14px; text-indent: 2em;">
+                具备扎实的电子与计算机工程理论基础，熟悉嵌入式开发、硬件电路设计、PCB 制板、系统联调全流程。学习能力强，逻辑严谨，擅长问题排查与工程落地，拥有硬件开发、算法模型、全栈开发实战经验。责任心强、团队协作良好，可快速适配岗位需求，在技术岗位持续创造价值。
+            </p>
         </section>
     </div>
 </body>
