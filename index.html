@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>郑俊鑫 - 个人简历</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary-color: #2c3e50; --accent-color: #3498db; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 40px 20px; background: #f4f7f6; }
+        .resume-card { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        header { border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+        h1 { margin: 0; color: var(--primary-color); font-size: 2.5em; }
+        .contact-info { text-align: right; font-size: 0.9em; }
+        section { margin-bottom: 30px; }
+        h2 { border-left: 5px solid var(--accent-color); padding-left: 15px; color: var(--primary-color); text-transform: uppercase; font-size: 1.2em; margin-bottom: 15px; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag { background: #ecf0f1; padding: 5px 12px; border-radius: 4px; font-size: 0.85em; font-weight: bold; }
+        .project-item, .edu-item { margin-bottom: 20px; }
+        .item-header { display: flex; justify-content: space-between; font-weight: bold; color: #2c3e50; }
+        .date { color: #7f8c8d; font-size: 0.9em; }
+        .highlight { color: var(--accent-color); font-weight: bold; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="resume-card">
+        <header>
+            <div>
+                <h1>郑俊鑫</h1>
+                <p>汕头大学 · 电子与计算机工程 · 本科</p>
+            </div>
+            <div class="contact-info">
+                <div><i class="fas fa-phone"></i> 15815155753</div>
+                <div><i class="fas fa-envelope"></i> 2323857919@qq.com</div>
+                <div><i class="fas fa-birthday-cake"></i> 2003.09.12</div>
+            </div>
+        </header>
+
+        <section id="skills">
+            <h2>专业技能</h2>
+            <div class="skill-tags">
+                <span class="tag">STM32 / HAL库</span>
+                <span class="tag">PCB设计 (AD/立创EDA)</span>
+                <span class="tag">C/C++</span>
+                <span class="tag">Python</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">AI Agent 开发</span>
+                <span class="tag">MySQL / Redis</span>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>教育背景</h2>
+            <div class="edu-item">
+                <div class="item-header">
+                    <span>汕头大学 (本科)</span>
+                    <span class="date">2022.10 - 2026.06</span>
+                </div>
+                <div>专业：电子与计算机工程 <span class="highlight">GPA: 3.63/5.0 (前13.33%)</span></div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>项目经历</h2>
+            <div class="project-item">
+                <div class="item-header">
+                    <span>基于频差法的超声波车速测量系统</span>
+                    <span class="date">2025.10 - 2026.04</span>
+                </div>
+                <ul>
+                    <li>基于 STM32F103C8T6 核心，实现低成本高精度车速监测。</li>
+                    <li>完成硬件驱动开发、信号调理及 DS18B20 温度补偿模块。</li>
+                    <li>基于 HAL 库实现 40kHz PWM 发射与定时器输入捕获。</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <div class="item-header">
+                    <span>基于 Agent 的智能招聘匹配网站</span>
+                    <span class="date">2025.12 - 2026.03</span>
+                </div>
+                <ul>
+                    <li>接入 Agent 架构，解决传统平台匹配低效问题。</li>
+                    <li>负责前后端代码开发与环境配置，输出完整开发计划书。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="honors">
+            <h2>荣誉成就</h2>
+            <ul>
+                <li>2026 北回归线黑客松 Agent 赛道最佳场景理解奖</li>
+                <li>连续三年获得国家励志奖学金</li>
+                <li>蓝桥杯软件类省级三等奖 / 数学竞赛省级三等奖</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
