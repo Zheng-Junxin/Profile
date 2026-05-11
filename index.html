@@ -96,7 +96,7 @@
             </div>
             <div class="item-sub">
                 学业成绩：GPA 3.63 / 5.0 (专业排名 13.33%)
-                <a class="transcript-link" href="./transcript.pdf" onclick="openTranscript(event)">查看成绩单</a>
+                <a class="transcript-link" href="./transcript.pdf" target="_blank" rel="noopener noreferrer">查看成绩单</a>
             </div>
             <div class="item-desc">
                 <strong>主修课程：</strong>C语言、微机与单片机原理、离散数学、数据结构与算法、模拟/数字电路、信号与系统、Python与数据科学。
@@ -198,31 +198,6 @@
 <script>
     function exportResumeAsPdf() {
         window.print();
-    }
-
-    async function openTranscript(event) {
-        event.preventDefault();
-        const transcriptPath = event.currentTarget.getAttribute("href") || "./transcript.pdf";
-        const transcriptUrl = new URL(transcriptPath, window.location.href);
-        if (transcriptUrl.origin !== window.location.origin) {
-            alert("成绩单链接配置无效，请检查后重试。");
-            return;
-        }
-        try {
-            const response = await fetch(transcriptUrl.href, { method: "HEAD" });
-            if (response.ok) {
-                window.open(transcriptUrl.href, "_blank", "noopener,noreferrer");
-                return;
-            }
-            if (response.status === 404) {
-                alert("未找到成绩单文件，请检查成绩单链接地址是否正确。");
-                return;
-            }
-            alert(`成绩单暂时无法访问（状态码：${response.status}），请稍后重试。`);
-        } catch (error) {
-            console.error("Failed to check transcript availability:", error);
-            alert("当前网络异常，暂时无法验证成绩单文件，请稍后重试。");
-        }
     }
 </script>
 
