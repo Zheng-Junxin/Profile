@@ -66,7 +66,7 @@
 
 <div class="resume-container">
     <div class="top-actions">
-        <button class="export-btn" onclick="exportResumeAsPdf()"><i class="fa-solid fa-file-pdf"></i> 导出 PDF 简历</button>
+        <button class="export-btn" onclick="openPrintDialog()" aria-label="导出 PDF 格式简历"><i class="fa-solid fa-file-pdf"></i> 导出 PDF 简历</button>
     </div>
     <header>
         <div class="header-info">
@@ -196,7 +196,7 @@
 </div>
 
 <script>
-    function exportResumeAsPdf() {
+    function openPrintDialog() {
         window.print();
     }
 </script>
