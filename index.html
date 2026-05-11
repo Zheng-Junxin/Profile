@@ -18,6 +18,11 @@
         body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.6; color: var(--text-color); background: var(--bg-light); padding: 40px 20px; }
         
         .resume-container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 4px; }
+        .top-actions { display: flex; justify-content: flex-end; margin-bottom: 16px; }
+        .export-btn { border: none; background: var(--accent-color); color: #fff; padding: 8px 14px; border-radius: 4px; font-size: 14px; cursor: pointer; }
+        .export-btn:hover { background: #2b84c6; }
+        .transcript-link { margin-left: 8px; font-size: 13px; color: var(--accent-color); text-decoration: none; border-bottom: 1px dashed var(--accent-color); }
+        .transcript-link:hover { color: #2b84c6; border-bottom-color: #2b84c6; }
 
         /* Header Area */
         header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; margin-bottom: 30px; }
@@ -53,12 +58,16 @@
             body { background: white; padding: 0; }
             .resume-container { box-shadow: none; border: none; max-width: 100%; }
             .tag { border: 1px solid #ccc; color: black; }
+            .top-actions { display: none; }
         }
     </style>
 </head>
 <body>
 
 <div class="resume-container">
+    <div class="top-actions">
+        <button class="export-btn" onclick="exportResumeAsPdf()"><i class="fa-solid fa-file-pdf"></i> 导出 PDF 简历</button>
+    </div>
     <header>
         <div class="header-info">
             <h1>郑俊鑫</h1>
@@ -85,7 +94,10 @@
                 <span>电子与计算机工程 · 本科</span>
                 <span>2022.10 - 2026.06</span>
             </div>
-            <div class="item-sub">学业成绩：GPA 3.63 / 5.0 (专业排名 13.33%)</div>
+            <div class="item-sub">
+                学业成绩：GPA 3.63 / 5.0 (专业排名 13.33%)
+                <a class="transcript-link" href="transcript.pdf" target="_blank" rel="noopener noreferrer">查看成绩单</a>
+            </div>
             <div class="item-desc">
                 <strong>主修课程：</strong>C语言、微机与单片机原理、离散数学、数据结构与算法、模拟/数字电路、信号与系统、Python与数据科学。
             </div>
@@ -182,6 +194,12 @@
         </div>
     </section>
 </div>
+
+<script>
+    function exportResumeAsPdf() {
+        window.print();
+    }
+</script>
 
 </body>
 </html>
