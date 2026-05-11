@@ -96,7 +96,7 @@
             </div>
             <div class="item-sub">
                 学业成绩：GPA 3.63 / 5.0 (专业排名 13.33%)
-                <a class="transcript-link" href="#" data-transcript-url="./transcript.pdf" onclick="openTranscript(event)" aria-label="查看学业成绩单PDF文件">查看成绩单</a>
+                <a class="transcript-link" href="#" data-transcript-url="./transcript.pdf" onclick="openTranscript(event)">查看成绩单</a>
             </div>
             <div class="item-desc">
                 <strong>主修课程：</strong>C语言、微机与单片机原理、离散数学、数据结构与算法、模拟/数字电路、信号与系统、Python与数据科学。
@@ -210,7 +210,7 @@
                 return;
             }
             if (response.status === 404) {
-                alert("未找到成绩单文件，请先在项目根目录放置 transcript.pdf。");
+                alert("未找到成绩单文件，请检查成绩单链接地址是否正确。");
                 return;
             }
             alert(`成绩单暂时无法访问（状态码：${response.status}），请稍后重试。`);
