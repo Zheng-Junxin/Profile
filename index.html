@@ -202,18 +202,24 @@
 
     async function openTranscript(event) {
         event.preventDefault();
-        const transcriptUrl = event.currentTarget.getAttribute("data-transcript-url") || "./transcript.pdf";
+        const transcriptPath = event.currentTarget.getAttribute("data-transcript-url") || "./transcript.pdf";
+        const transcriptUrl = new URL(transcriptPath, window.location.href);
+        if (transcriptUrl.origin !== window.location.origin) {
+            alert("成绩单链接配置无效，请检查后重试。");
+            return;
+        }
         try {
-            const response = await fetch(transcriptUrl, { method: "HEAD" });
+            const response = await fetch(transcriptUrl.href, { method: "HEAD" });
             if (response.ok) {
-                window.open(transcriptUrl, "_blank", "noopener,noreferrer");
+                window.open(transcriptUrl.href, "_blank", "noopener,noreferrer");
                 return;
             }
             if (response.status === 404) {
                 alert("未找到成绩单文件，请检查成绩单链接地址是否正确。");
                 return;
             }
-            alert(`成绩单暂时无法访问（状态码：${response.status}），请稍后重试。`);
+            const safeStatusCode = Number.isInteger(response.status) ? response.status : 0;
+            alert(`成绩单暂时无法访问（状态码：${safeStatusCode}），请稍后重试。`);
             return;
         } catch (error) {
             console.error("Failed to check transcript availability:", error);
