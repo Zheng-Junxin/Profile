@@ -7,7 +7,7 @@ Convert the existing resume project into a polished public personal profile webs
 ## Scope
 
 - Rebuild the project as a static GitHub Pages friendly site using the existing `index.html`, `avatar.jpg`, and `transcript.pdf`.
-- Fix the current Chinese mojibake by rewriting page content as valid UTF-8.
+- Keep all Chinese content as valid UTF-8 and verify the final page contains no mojibake.
 - Add the work experience requested by the user:
   - `2026.07.01-至今 深圳市盛能杰科技有限公司 嵌入式软件工程师`
 - Keep the site as plain static HTML/CSS/JavaScript. No React, Vue, build step, package manager, or external deployment dependency.

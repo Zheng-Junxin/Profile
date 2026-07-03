@@ -1,218 +1,843 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>郑俊鑫 - 个人简历 | 汕头大学</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --text-color: #333;
-            --bg-light: #f4f7f6;
-            --border-color: #eee;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="郑俊鑫的个人简介主页，聚焦嵌入式软件、STM32、硬件调试、PCB 设计与 AI 工具链实践。">
+  <title>郑俊鑫 | 嵌入式软件工程师</title>
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --surface: #ffffff;
+      --surface-soft: #fbfaf7;
+      --text: #202124;
+      --muted: #62666d;
+      --line: #ded8cf;
+      --primary: #176c72;
+      --primary-dark: #0d4549;
+      --accent: #b35a32;
+      --accent-soft: #f1ded2;
+      --shadow: 0 16px 36px rgba(52, 43, 32, 0.1);
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.6; color: var(--text-color); background: var(--bg-light); padding: 40px 20px; }
-        
-        .resume-container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 4px; }
-        .top-actions { display: flex; justify-content: flex-end; margin-bottom: 16px; }
-        .export-btn { border: none; background: var(--accent-color); color: #fff; padding: 8px 14px; border-radius: 4px; font-size: 14px; cursor: pointer; }
-        .export-btn:hover { background: #2b84c6; }
-        .transcript-link { margin-left: 8px; font-size: 13px; color: var(--accent-color); text-decoration: none; border-bottom: 1px dashed var(--accent-color); }
-        .transcript-link:hover { color: #2b84c6; border-bottom-color: #2b84c6; }
+    * {
+      box-sizing: border-box;
+    }
 
-        /* Header Area */
-        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; margin-bottom: 30px; }
-        .header-info h1 { font-size: 32px; color: var(--primary-color); margin-bottom: 10px; letter-spacing: 2px; }
-        .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-size: 14px; }
-        .contact-grid i { color: var(--accent-color); width: 18px; }
-        .profile-photo { width: 110px; height: 140px; border: 1px solid #ddd; padding: 2px; }
-        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* Section Styling */
-        section { margin-bottom: 30px; }
-        .section-title { display: flex; align-items: center; font-size: 20px; color: var(--primary-color); border-left: 4px solid var(--accent-color); padding-left: 10px; margin-bottom: 15px; background: #f9f9f9; padding: 8px 10px; }
-        .section-title i { margin-right: 10px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+    }
 
-        /* Skills Tags */
-        .skill-group { margin-bottom: 15px; }
-        .skill-group strong { display: block; margin-bottom: 5px; color: #555; }
-        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag { background: #eef5fb; color: #2980b9; padding: 3px 12px; border-radius: 15px; font-size: 13px; border: 1px solid #d6eaf8; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        /* Project & Education Items */
-        .item { margin-bottom: 20px; }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; font-weight: bold; color: #000; }
-        .item-sub { color: var(--accent-color); font-size: 14px; margin-bottom: 5px; }
-        .item-desc { font-size: 14px; color: #555; text-align: justify; }
-        .item-list { padding-left: 18px; margin-top: 5px; font-size: 14px; }
-        .item-list li { margin-bottom: 3px; }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(222, 216, 207, 0.9);
+      background: rgba(246, 244, 239, 0.94);
+      backdrop-filter: blur(14px);
+    }
 
-        /* Achievement/Honor List */
-        .honor-list { columns: 1; -webkit-columns: 1; font-size: 14px; list-style-type: square; padding-left: 20px; }
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-        @media print {
-            body { background: white; padding: 0; }
-            .resume-container { box-shadow: none; border: none; max-width: 100%; }
-            .tag { border: 1px solid #ccc; color: black; }
-            .top-actions { display: none; }
-        }
-    </style>
+    .brand {
+      display: flex;
+      flex-direction: column;
+      min-width: 120px;
+    }
+
+    .brand strong {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--primary-dark);
+      border-bottom-color: var(--accent);
+      outline: none;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) 360px;
+      gap: 44px;
+      align-items: center;
+      min-height: calc(100vh - 96px);
+      padding: 24px 0 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border: 1px solid var(--line);
+      background: var(--surface-soft);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.04;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .hero-title {
+      margin: 20px 0 0;
+    }
+
+    .role {
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 700;
+    }
+
+    .intro {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 18px;
+      border: 1px solid var(--primary);
+      border-radius: 8px;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .button.primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 10px 22px rgba(23, 108, 114, 0.22);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--primary-dark);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(52, 43, 32, 0.13);
+      outline: none;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-line a {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .profile-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--surface-soft);
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-facts {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .fact:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .fact span:first-child {
+      color: var(--muted);
+    }
+
+    .fact span:last-child {
+      text-align: right;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 58px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 26px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.18;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .highlight {
+      min-height: 112px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 18px;
+    }
+
+    .highlight strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--primary-dark);
+      font-size: 20px;
+    }
+
+    .highlight span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item,
+    .project-card,
+    .skill-group,
+    .honor-list,
+    .contact-panel,
+    .about-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 24px;
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 10px;
+    }
+
+    .item-top h3 {
+      margin-bottom: 4px;
+      color: var(--primary-dark);
+      font-size: 20px;
+    }
+
+    .item-top p,
+    .date {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .date {
+      flex: 0 0 auto;
+      font-weight: 700;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skill-group h3,
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-size: 19px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      border: 1px solid rgba(23, 108, 114, 0.2);
+      border-radius: 999px;
+      background: #eef6f5;
+      color: var(--primary-dark);
+      padding: 5px 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .honor-list {
+      columns: 2;
+      column-gap: 36px;
+    }
+
+    .about-panel {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-item {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--primary-dark);
+    }
+
+    .contact-item span,
+    .contact-item a {
+      color: var(--muted);
+      word-break: break-word;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 24px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 24px;
+      }
+
+      .profile-panel {
+        max-width: 420px;
+      }
+
+      .highlight-grid,
+      .skill-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        gap: 10px 14px;
+      }
+
+      main {
+        padding: 28px 18px 52px;
+      }
+
+      .hero-actions,
+      .contact-line {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .highlight-grid,
+      .skill-grid,
+      .projects-grid,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .item-top,
+      .project-meta {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .date {
+        align-self: flex-start;
+      }
+
+      .honor-list {
+        columns: 1;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#about" aria-label="回到个人简介">
+        <strong>郑俊鑫</strong>
+        <span>Embedded Software Engineer</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">简介</a>
+        <a href="#experience">经历</a>
+        <a href="#skills">技能</a>
+        <a href="#projects">项目</a>
+        <a href="#honors">荣誉</a>
+        <a href="#contact">联系</a>
+      </div>
+    </nav>
+  </header>
 
-<div class="resume-container">
-    <div class="top-actions">
-        <button class="export-btn" onclick="openPrintDialog()"><i class="fa-solid fa-file-pdf"></i> 导出 PDF 简历</button>
-    </div>
-    <header>
-        <div class="header-info">
-            <h1>郑俊鑫</h1>
-            <div class="contact-grid">
-                <span><i class="fa-solid fa-cake-candles"></i> 2003/09/12</span>
-                <span><i class="fa-solid fa-location-dot"></i> 广东汕头</span>
-                <span><i class="fa-solid fa-phone"></i> 15815155753</span>
-                <span><i class="fa-solid fa-envelope"></i> 2323857919@qq.com</span>
-                <span><i class="fa-solid fa-graduation-cap"></i> 本科 · 汕头大学</span>
-                <span><i class="fa-solid fa-language"></i> 英语六级 (CET-6)</span>
-                <span><i class="fa-solid fa-globe"></i> <a href="https://zhengtech.whf.bz/wp/" target="_blank" rel="noopener noreferrer" title="https://zhengtech.whf.bz/wp/">个人资料网</a></span>
+  <main>
+    <section class="hero" id="about">
+      <div>
+        <span class="eyebrow">汕头大学 · 电子与计算机工程</span>
+        <h1 class="hero-title">郑俊鑫</h1>
+        <p class="role">嵌入式软件工程师</p>
+        <p class="intro">
+          聚焦 STM32、HAL、RTOS、外设驱动、硬件调试与 PCB 工程落地，具备从电路验证、板级联调到嵌入式软件实现的完整实践经验。也熟悉 Python、AI Agent 与全栈开发，能使用 AI 工具提升工程开发与问题定位效率。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:2323857919@qq.com">联系我</a>
+          <a class="button secondary" href="transcript.pdf" target="_blank" rel="noopener noreferrer">查看成绩单</a>
+        </div>
+        <div class="contact-line" aria-label="快速联系信息">
+          <span>广东汕头</span>
+          <span>15815155753</span>
+          <a href="mailto:2323857919@qq.com">2323857919@qq.com</a>
+          <a href="https://zhengtech.whf.bz/wp/" target="_blank" rel="noopener noreferrer">个人资料网站</a>
+        </div>
+      </div>
+
+      <aside class="profile-panel" aria-label="个人资料卡片">
+        <div class="portrait">
+          <img src="avatar.jpg" alt="郑俊鑫头像">
+        </div>
+        <div class="profile-facts">
+          <div class="fact"><span>出生日期</span><span>2003/09/12</span></div>
+          <div class="fact"><span>学历</span><span>本科</span></div>
+          <div class="fact"><span>英语</span><span>CET-6</span></div>
+          <div class="fact"><span>方向</span><span>嵌入式软件</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="highlights">
+      <div class="highlight-grid">
+        <div class="highlight">
+          <strong>汕头大学</strong>
+          <span>电子与计算机工程本科，2022.10-2026.06</span>
+        </div>
+        <div class="highlight">
+          <strong>GPA 3.63/5.0</strong>
+          <span>专业排名 13.33%，成绩单可在线查看</span>
+        </div>
+        <div class="highlight">
+          <strong>STM32/HAL/RTOS</strong>
+          <span>覆盖 PWM、定时器捕获、传感器联调与板级调试</span>
+        </div>
+        <div class="highlight">
+          <strong>AI + 工程实践</strong>
+          <span>具备 AI Agent、Python、后端与部署实践</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Experience</div>
+          <h2>工作经历</h2>
+        </div>
+        <p>最新经历优先展示，突出面向嵌入式软件工程岗位的工程实践与协作能力。</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="item-top">
+            <div>
+              <h3>深圳市盛能杰科技有限公司</h3>
+              <p>嵌入式软件工程师</p>
             </div>
-        </div>
-        <div class="profile-photo">
-            <!-- 替换为您照片的真实路径 -->
-            <img src="avatar.jpg" alt="郑俊鑫">
-        </div>
-    </header>
+            <span class="date">2026.07.01-至今</span>
+          </div>
+          <ul>
+            <li>围绕嵌入式软件开发、外设接口调试、产品控制逻辑与问题定位开展工程实践。</li>
+            <li>配合硬件与测试环节完成板级联调、故障复现和调试记录沉淀，持续提升代码与系统可靠性。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
     <section id="education">
-        <div class="section-title"><i class="fa-solid fa-university"></i> 教育背景</div>
-        <div class="item">
-            <div class="item-header">
-                <span>汕头大学</span>
-                <span>电子与计算机工程 · 本科</span>
-                <span>2022.10 - 2026.06</span>
-            </div>
-            <div class="item-sub">
-                学业成绩：GPA 3.63 / 5.0 (专业排名 13.33%)
-                <a class="transcript-link" href="./transcript.pdf" target="_blank" rel="noopener noreferrer">查看成绩单</a>
-            </div>
-            <div class="item-desc">
-                <strong>主修课程：</strong>C语言、微机与单片机原理、离散数学、数据结构与算法、模拟/数字电路、信号与系统、Python与数据科学。
-            </div>
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Education</div>
+          <h2>教育背景</h2>
         </div>
+        <p>电子与计算机工程背景，课程覆盖嵌入式、数字电路、算法、信号系统与数据科学。</p>
+      </div>
+
+      <article class="timeline-item">
+        <div class="item-top">
+          <div>
+            <h3>汕头大学</h3>
+            <p>电子与计算机工程 · 本科</p>
+          </div>
+          <span class="date">2022.10-2026.06</span>
+        </div>
+        <ul>
+          <li>学业成绩：GPA 3.63/5.0，专业排名 13.33%。</li>
+          <li>主修课程：C 语言、微机与单片机原理、离散数学、数据结构与算法、模拟电路、数字电路、信号与系统、Python 与数据科学。</li>
+          <li><a href="transcript.pdf" target="_blank" rel="noopener noreferrer">查看成绩单 PDF</a></li>
+        </ul>
+      </article>
     </section>
 
     <section id="skills">
-        <div class="section-title"><i class="fa-solid fa-screwdriver-wrench"></i> 专业技能</div>
-        <div class="skill-group">
-            <div class="tag-container">
-                <span class="tag">嵌入式开发 (STM32/HAL/RTOS)</span>
-                <span class="tag">C/C++</span>
-                <span class="tag">Python</span>
-                <span class="tag">PCB设计 (立创EDA/AD)</span>
-                <span class="tag">硬件仿真 (Multisim/Proteus)</span>
-                <span class="tag">机器学习 (PyTorch/Scikit-learn)</span>
-                <span class="tag">MySQL/Redis</span>
-                <span class="tag">AI Agent 开发</span>
-            </div>
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Skills</div>
+          <h2>专业技能</h2>
         </div>
+        <p>技能按工程场景分组，覆盖嵌入式软件、硬件调试、PCB 与 AI 软件开发。</p>
+      </div>
+
+      <div class="skill-grid">
+        <article class="skill-group">
+          <h3>嵌入式软件</h3>
+          <div class="tag-row">
+            <span class="tag">STM32</span>
+            <span class="tag">HAL</span>
+            <span class="tag">RTOS</span>
+            <span class="tag">C/C++</span>
+            <span class="tag">PWM</span>
+            <span class="tag">定时器捕获</span>
+          </div>
+        </article>
+        <article class="skill-group">
+          <h3>硬件与 PCB</h3>
+          <div class="tag-row">
+            <span class="tag">立创 EDA</span>
+            <span class="tag">Altium Designer</span>
+            <span class="tag">Multisim</span>
+            <span class="tag">Proteus</span>
+            <span class="tag">板级调试</span>
+            <span class="tag">信号调理</span>
+          </div>
+        </article>
+        <article class="skill-group">
+          <h3>软件与 AI</h3>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Redis</span>
+            <span class="tag">AI Agent</span>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="projects">
-        <div class="section-title"><i class="fa-solid fa-briefcase"></i> 项目经历</div>
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Projects</div>
+          <h2>精选项目</h2>
+        </div>
+        <p>项目覆盖嵌入式测量系统、AI 应用、算法训练和 STM32 综合实践，强调从方案设计到工程落地。</p>
+      </div>
 
-        <!-- Project 1 -->
-        <div class="item">
-            <div class="item-header">
-                <span>基于AI的简历优化网站</span>
-                <span>AI全栈开发</span>
-                <span>2026.04 - 2026.05</span>
-            </div>
-            <ul class="item-list">
-                <li><strong>背景：</strong>针对求职者简历优化的需求，利用大模型技术，实现简历与岗位JD匹配打分与优化建议</li>
-                <li><strong>职责：</strong>完成项目计划书的撰写，项目环境的配置，基于Claude code+Deepseek模型完成项目的前后端代码开发，并进行云端的部署工作</li>
-            </ul>
-        </div>
-        <!-- Project 2 -->
-        <div class="item">
-            <div class="item-header">
-                <span>基于频差法的超声波车速测量系统</span>
-                <span>核心负责人</span>
-                <span>2025.10 - 2026.04</span>
-            </div>
-            <ul class="item-list">
-                <li><strong>背景：</strong>针对低成本高精度测速需求，以 STM32F103C8T6 为核心设计超声波多普勒频差测速方案。</li>
-                <li><strong>硬件实现：</strong>完成多路信号调理电路设计、超声波发射驱动及 DS18B20 温度补偿模块，通过 Multisim 验证电路稳定性。</li>
-                <li><strong>软件开发：</strong>利用 HAL 库实现 40kHz PWM 精准发射及定时器捕获频差，规避高开销 FFT 算法，显著降低算力需求。</li>
-                <li><strong>工程落地：</strong>设计四层 PCB，解决传感器上电异常等电磁兼容问题，最终实现实物高可靠性运行。</li>
-            </ul>
-        </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-meta">
+            <span>AI 全栈开发</span>
+            <span>2026.04-2026.05</span>
+          </div>
+          <h3>基于 AI 的简历优化网站</h3>
+          <p>面向求职者简历优化需求，利用大模型实现简历与岗位 JD 的匹配评分和优化建议。</p>
+          <ul>
+            <li>负责项目计划书、环境配置、前后端开发和云端部署。</li>
+            <li>基于 Claude Code 与 DeepSeek 模型完成核心功能搭建。</li>
+          </ul>
+        </article>
 
-        <!-- Project 3 -->
-        <div class="item">
-            <div class="item-header">
-                <span>基于 Agent 的智能招聘匹配网站</span>
-                <span>全栈开发</span>
-                <span>2025.12 - 2026.03</span>
-            </div>
-            <ul class="item-list">
-                <li><strong>背景：</strong>针对招聘市场匹配效率低的问题，构建基于大模型 Agent 的求职岗位自动匹配模型。</li>
-                <li><strong>职责：</strong>负责前后端代码联调与环境配置，编写技术开发计划书。</li>
-            </ul>
-        </div>
+        <article class="project-card">
+          <div class="project-meta">
+            <span>核心负责人</span>
+            <span>2025.10-2026.04</span>
+          </div>
+          <h3>基于频差法的超声波车速测量系统</h3>
+          <p>以 STM32F103C8T6 为核心，设计低成本高精度的超声波多普勒频差测速方案。</p>
+          <ul>
+            <li>完成多路信号调理、超声波发射驱动和 DS18B20 温度补偿模块设计。</li>
+            <li>使用 HAL 实现 40kHz PWM 发射与定时器捕获频差，降低对 FFT 算力的依赖。</li>
+            <li>设计四层 PCB，解决传感器上电异常等电磁兼容问题并完成实物验证。</li>
+          </ul>
+        </article>
 
-        <!-- Project 4 -->
-        <div class="item">
-            <div class="item-header">
-                <span>基于深度学习的寄生虫智能诊断系统</span>
-                <span>算法研发</span>
-                <span>2023.06 - 2024.07</span>
-            </div>
-            <ul class="item-list">
-                <li><strong>背景：</strong>面向医疗资源匮乏地区，搭建云端 AI 辅助诊断系统。</li>
-                <li><strong>工作：</strong>完成数千份样本的分类与标签标注，基于卷积神经网络进行模型训练与调参，验证了 AI 在寄生虫识别上的可行性。</li>
-            </ul>
-        </div>
+        <article class="project-card">
+          <div class="project-meta">
+            <span>全栈开发</span>
+            <span>2025.12-2026.03</span>
+          </div>
+          <h3>基于 Agent 的智能招聘匹配网站</h3>
+          <p>针对招聘匹配效率低的问题，构建基于大模型 Agent 的求职岗位自动匹配模型。</p>
+          <ul>
+            <li>负责前后端联调、环境配置和技术开发计划书编写。</li>
+          </ul>
+        </article>
 
-        <!-- Project 5 -->
-        <div class="item">
-            <div class="item-header">
-                <span>基于 STM32 的循迹避障小车</span>
-                <span>硬件/软件开发</span>
-                <span>2024.05 - 2024.08</span>
-            </div>
-            <ul class="item-list">
-                <li><strong>功能：</strong>实现红外循迹、超声波避障及路径规划。负责 STM32 程序编写、电机驱动调试及传感器功能联调，确保了小车在复杂障碍物环境下的稳定运行。</li>
-            </ul>
-        </div>
+        <article class="project-card">
+          <div class="project-meta">
+            <span>算法研发</span>
+            <span>2023.06-2024.07</span>
+          </div>
+          <h3>基于深度学习的寄生虫智能诊断系统</h3>
+          <p>面向医疗资源匮乏地区，搭建云端 AI 辅助诊断系统并验证识别可行性。</p>
+          <ul>
+            <li>完成数千份样本分类和标签标注，基于卷积神经网络进行模型训练与调参。</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta">
+            <span>硬件/软件开发</span>
+            <span>2024.05-2024.08</span>
+          </div>
+          <h3>基于 STM32 的循迹避障小车</h3>
+          <p>实现红外循迹、超声波避障和路径规划，完成嵌入式程序与传感器联调。</p>
+          <ul>
+            <li>负责编写 STM32 程序、电机驱动调试和传感器功能联调，保障复杂障碍环境下稳定运行。</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section id="honors">
-        <div class="section-title"><i class="fa-solid fa-trophy"></i> 荣誉成就</div>
-        <ul class="honor-list">
-            <li><strong>2026：</strong>北回归线黑客松 Agent 赛道最佳场景理解奖</li>
-            <li><strong>2025：</strong>数学竞赛省级三等奖 / 蓝桥杯软件类省级三等奖 / 校级三等奖学金</li>
-            <li><strong>2022-2025：</strong>连续三年获得 <strong>国家励志奖学金</strong></li>
-            <li><strong>2022-2024：</strong>连续两年获得校级二等奖学金 / 连续四年获得校级全额奖学金</li>
-        </ul>
-    </section>
-
-    <section id="evaluation">
-        <div class="section-title"><i class="fa-solid fa-user"></i> 自我评价</div>
-        <div class="item-desc">
-            扎实的电子与计算机工程理论基础，精通嵌入式开发、硬件电路设计与全流程 PCB 制作。具备全栈开发视野，熟练应用 AI 工具进行辅助编程。逻辑严谨，擅长工程落地与复杂问题排查，能快速适应高强度的技术岗位挑战。
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Honors</div>
+          <h2>荣誉成就</h2>
         </div>
+        <p>竞赛、奖学金与项目成果共同体现持续学习和工程实践能力。</p>
+      </div>
+
+      <ul class="honor-list">
+        <li><strong>2026：</strong>北回归线黑客杯 Agent 赛道最佳场景理解奖。</li>
+        <li><strong>2025：</strong>数学竞赛省级三等奖、蓝桥杯软件类省级三等奖、校级三等奖学金。</li>
+        <li><strong>2022-2025：</strong>连续三年获得国家励志奖学金。</li>
+        <li><strong>2022-2024：</strong>连续两年获得校级二等奖学金，连续获得校级全额奖学金。</li>
+      </ul>
     </section>
-</div>
 
-<script>
-    function openPrintDialog() {
-        window.print();
-    }
-</script>
+    <section id="self-evaluation">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Profile</div>
+          <h2>自我评价</h2>
+        </div>
+        <p>偏工程落地型的嵌入式软件背景，能把硬件、电路、软件和调试闭环串起来。</p>
+      </div>
+      <div class="about-panel">
+        扎实掌握电子与计算机工程理论基础，熟悉嵌入式开发、硬件电路设计与 PCB 制作流程。具备全栈开发视野，能熟练使用 AI 工具辅助编码、调试和文档整理。逻辑严谨，擅长工程落地与复杂问题排查，能够快速适应高强度技术岗位挑战。
+      </div>
+    </section>
 
+    <section id="contact">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2>联系我</h2>
+        </div>
+        <p>欢迎通过邮箱、电话或个人资料网站进一步了解我的经历和项目。</p>
+      </div>
+
+      <div class="contact-panel">
+        <div class="contact-item">
+          <strong>邮箱</strong>
+          <a href="mailto:2323857919@qq.com">2323857919@qq.com</a>
+        </div>
+        <div class="contact-item">
+          <strong>电话</strong>
+          <span>15815155753</span>
+        </div>
+        <div class="contact-item">
+          <strong>所在地</strong>
+          <span>广东汕头</span>
+        </div>
+        <div class="contact-item">
+          <strong>个人资料网站</strong>
+          <a href="https://zhengtech.whf.bz/wp/" target="_blank" rel="noopener noreferrer">https://zhengtech.whf.bz/wp/</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 郑俊鑫 · 个人简介静态网页</span>
+  </footer>
 </body>
 </html>
